@@ -1,0 +1,1 @@
+console.log( 'Hola WebPack con entrada y salidad personalizada!!!');
