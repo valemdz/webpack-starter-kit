@@ -1,0 +1,18 @@
+html{
+    color: #FFF;
+    background: {
+        color: #222222;
+        repeat: repeat;
+        image:url('../img/descarga.png')
+    }
+}
+
+
+#app{
+    margin: auto;
+    padding: 2rem;
+    width: 80%;
+    min-height: 100vh; /*view port*/
+    text-align: center;
+    background-color: aqua;
+}
