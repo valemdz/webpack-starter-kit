@@ -1,9 +1,16 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractyPlugin = require('mini-css-extract-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 module.exports={
+    entry:{
+       js:'./src/index.js',
+       vanilla:'./src/hello_vanilla.js'
+    },
+    output:{
+        filename:'[name].[chunkhash].js'
+    },
     devtool:'source-map',
     module:{
         rules:[
@@ -55,11 +62,20 @@ module.exports={
         ]
     },
     plugins:[
-        new CleanWebpackPlugin( ['dist/**/*.*'] ),
-        new MiniCssExtractyPlugin(),
+        new CleanWebpackPlugin(),
+        new MiniCssExtractyPlugin({
+            filename:'[name].[chunkhash].css',
+            chunkFilename:'[id].css'
+        }),
         new HtmlWebpackPlugin({
             template:'./src/template.html',
-            file:'index.html'
+            filename:'index.html',
+            chunks:['js']
+        }),
+        new HtmlWebpackPlugin({
+            template:'./src/template.html',
+            filename:'vanilla.html',
+            chunks:['vanilla']
         })
     ]
 }
