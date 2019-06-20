@@ -1,18 +1,30 @@
-html{
+html {
     color: #FFF;
     background: {
         color: #222222;
         repeat: repeat;
-        image:url('../img/descarga.png')
+        image: url('../img/descarga.png')
     }
 }
 
-
-#app{
+#app {
     margin: auto;
     padding: 2rem;
     width: 80%;
-    min-height: 100vh; /*view port*/
+    min-height: 100vh;
+    /*view port*/
     text-align: center;
     background-color: aqua;
+    * {
+        margin: 1rem auto;
+    }
+}
+
+.Menu {
+    display: flex;
+    justify-content: space-evenly;
+    a {
+        color: #8DD6FB;
+        transition: all .3s ease;
+    }
 }
